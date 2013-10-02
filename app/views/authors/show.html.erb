@@ -29,7 +29,17 @@
   <b>Twitter:</b>
   <%= link_to @author.twitter, "http://www.twitter.com/"+@author.twitter %>
 </p>
+<%= link_to 'Edit Profile', edit_author_path(@author) %> 
 
+<hr />
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
+<!-- So this part up here ^ is for the Author. This part down here v is all of his posts. These are separate by design.  -->
+
+<h3> <%= @author.first_name%>'s posts</h3>
+  <% @author.posts.each do |post| %>
+  <h2><%= link_to post.title.titleize, post %></h2>
+  <h4><%= time_tag(post.publish_at.to_date) %></h4>
+  <p><%= simple_format(post.body) %></p>
+<% end %>
+
 <%= link_to 'Back', authors_path %>

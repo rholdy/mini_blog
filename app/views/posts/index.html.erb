@@ -4,7 +4,8 @@
 
 <% @posts.each do |post| %>
 <h2><%= post.title.titleize %></h2>
-<h4><%= post.author_name %> - <%= time_tag(post.publish_at.to_date) %></h4>
+<h3><%= link_to(post.author.try(:username), author_path(post.author)) %></h3>
+<h4><%= time_tag(post.publish_at.to_date) %></h4>
 <p><%= simple_format(post.body) %></p>
   
 <%= link_to 'Edit', edit_post_path(post) %>
