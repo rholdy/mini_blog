@@ -3,12 +3,12 @@
 
 
 <% @authors.each do |author| %>
-    <h2><%= author.first_name %> <%= author.last_name %> (<%= author.username %>)</h2>
+    <h2><%= author.first_name %> <%= author.last_name %> (<%= link_to author.username, author_path(author) %>)</h2>
     <p><%= author.bio %></p>
     <%= mail_to author.email %>
     <%= link_to author.twitter, "http://www.twitter.com/"+author.twitter %>
-  
-   
+    
+
 <%= link_to 'Edit', edit_author_path(author) %>
 <%= link_to 'Delete', author, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Show', author %>

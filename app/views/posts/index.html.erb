@@ -3,14 +3,14 @@
 
 
 <% @posts.each do |post| %>
-<h2><%= post.title.titleize %></h2>
+<h2><%= link_to post.title.titleize, post %></h2>
 <h3><%= link_to(post.author.try(:username), author_path(post.author)) %></h3>
 <h4><%= time_tag(post.publish_at.to_date) %></h4>
-<p><%= simple_format(post.body) %></p>
+<p><%= simple_format(truncate(post.body, length: 140)) %></p>
   
 <%= link_to 'Edit', edit_post_path(post) %>
 <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Show', post %>
+
 
 
 <% end %>
