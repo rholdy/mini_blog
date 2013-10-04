@@ -5,8 +5,37 @@
 <h4><%= time_tag(@post.publish_at.to_date) %></h4>
 <p><%= simple_format(@post.body) %></p>
 
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter_name %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.message %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter_name %><br />
+    <%= f.text_field :commenter_name %>
+  </p>
+  <p>
+    <%= f.label :message  %><br />
+    <%= f.text_area :message %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+<%= link_to 'Comment', comments_path %>
 
 
