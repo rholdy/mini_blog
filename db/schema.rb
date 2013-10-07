@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(:version => 20131004023413) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.text     "body",       :limit => 255
+    t.text     "body"
     t.datetime "publish_at"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "author_id"
   end
 
