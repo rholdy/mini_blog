@@ -1,7 +1,8 @@
 MiniBlog::Application.routes.draw do
+  get "sessions/new"
+
   resources :comments
-
-
+  resources :sessions
   resources :authors
 
 
