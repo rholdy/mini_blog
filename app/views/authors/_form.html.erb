@@ -35,7 +35,17 @@
     <%= f.label :twitter %><br />
     <%= f.text_field :twitter %>
   </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <h4> All Fields Required </h4>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
