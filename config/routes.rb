@@ -4,15 +4,15 @@ MiniBlog::Application.routes.draw do
   get 'sign-in', to:'sessions#new', as: :signin
   delete 'sign-out', to: 'sessions#destroy', as: :signout
 
-  resources :comments
-  resources :sessions
-  resources :authors
 
 
   resources :posts do
     resources :comments
   end
   
+  resources :comments
+  resources :sessions
+  resources :authors
 
 
   get "home/index"

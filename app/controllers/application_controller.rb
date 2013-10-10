@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_author
 
+  def authorize
+    redirect_to root_url, alert: "Not Authorized" if current_author.nil?
+  end
+
 end

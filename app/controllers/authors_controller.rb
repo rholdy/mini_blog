@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  before_filter :authorize, only: [:new, :create, :update, :destroy, :edit]
   # GET /authors
   # GET /authors.json
   def index
